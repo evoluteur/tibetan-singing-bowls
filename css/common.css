@@ -1,0 +1,260 @@
+/* Shared styles for the omg-themed apps: header, theme picker, panels,
+   controls, buttons, tabs. Each app adds its own stylesheet on top. */
+
+#omg-header {
+  z-index: 450;
+}
+
+/* core.css is shared across other projects, so the theme-picker's swatch
+   styling stays untouched there -- this overrides it to render icons
+   (sun/moon/spiral, same set as react-morph-charts' ThemeToggle) instead of
+   plain colored circles, without needing to edit the shared file. */
+#omg-theme-picker {
+  gap: 2px;
+}
+#omg-theme-picker > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: none;
+  color: currentColor;
+  opacity: 0.75;
+}
+#omg-theme-picker > a:hover,
+#omg-theme-picker > a.selected {
+  opacity: 1;
+}
+
+h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tagline {
+  opacity: 0.85;
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* The themes ship a generic svg rule (22px, tan fill, orange on hover) meant
+   for icons; drawings opt out of it with the "plain" class. */
+svg.plain {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  cursor: inherit;
+}
+svg.plain:hover {
+  fill: none;
+}
+
+/* Layout: a stage next to a panel of controls, stacked on narrow screens */
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 10px 0 20px;
+}
+.stage {
+  flex: 1 1 420px;
+  min-width: 0;
+  max-width: 720px;
+}
+.side {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 420px;
+}
+.panel {
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  border: 3px solid var(--card-border);
+  border-radius: 10px;
+  padding: 14px 18px 16px;
+  margin: 0 0 16px;
+}
+.panel h3 {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+/* Controls */
+.ctl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2px 10px;
+  margin: 0 0 12px;
+  font-size: 0.9em;
+}
+.ctl label {
+  opacity: 0.9;
+}
+.ctl .val {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+.ctl input[type="range"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 0;
+  margin: 4px 0 0;
+  accent-color: #ffa500;
+  background: none;
+  border: none;
+}
+.ctl select,
+.ctl input[type="number"],
+.ctl input[type="text"],
+.ctl input[type="date"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-sizing: border-box;
+}
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.opt input {
+  width: 1.1em;
+  height: 1.1em;
+  padding: 0;
+  accent-color: #ffa500;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.btns button,
+.chips button {
+  margin: 0;
+}
+button.ghost,
+.chips button {
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid var(--card-border);
+}
+button.ghost:hover,
+button.ghost:focus,
+.chips button:hover,
+.chips button:focus {
+  background-color: var(--card-bg);
+  border-color: color-mix(in srgb, var(--card-border), white 40%);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.chips button {
+  line-height: 1.2;
+  padding: 6px 12px;
+}
+.chips button.selected,
+.chips button[aria-pressed="true"] {
+  background-color: var(--card-bg);
+  border-color: #ffa500;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.btns.tight {
+  gap: 6px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+.tabs button {
+  margin: 0;
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+}
+.tabs button:hover,
+.tabs button:focus {
+  background-color: var(--card-bg);
+}
+.tabs button.selected {
+  background-color: var(--card-bg);
+  border-color: #ffa500;
+}
+
+/* Small stat tiles */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+}
+.stat {
+  border: 2px solid var(--card-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+.stat .k {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+.stat .v {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--card-strong);
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+}
+.note {
+  font-size: 0.85em;
+  opacity: 0.8;
+  max-width: 680px;
+  line-height: 1.45;
+}
+.footer {
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 560px) {
+  h1 {
+    font-size: 1.6rem;
+    padding-right: 125px;
+    white-space: normal;
+    overflow: visible;
+  }
+  .panel {
+    padding: 12px 14px 14px;
+  }
+}

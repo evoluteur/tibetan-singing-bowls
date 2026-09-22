@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-063933E3C2");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tibetan Singing Bowls</title>
+    <meta
+      name="description"
+      content="Strike or rub a set of virtual Tibetan singing bowls, synthesized in your browser with the beating overtones of the real thing. Includes a sound bath timer. Free, works offline."
+    />
+    <meta name="author" content="Olivier Giulieri" />
+    <link rel="canonical" href="https://evoluteur.github.io/tibetan-singing-bowls/" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="theme-color" content="#1a212d" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Overpass"
+    />
+    <link id="omg-core-css" rel="stylesheet" href="css/core.css" />
+    <link id="omg-theme-css" rel="stylesheet" href="css/themes/dark/dark.css" />
+    <link id="omg-density-css" rel="stylesheet" href="css/densities.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/bowls.css" />
+    <link rel="stylesheet" href="css/about.css" />
+
+    <script src="js/omg.js"></script>
+    <script src="js/bowls.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+      }
+    </script>
+  </head>
+
+  <body onload="setupPage('home'); initBowls();" id="omg-body">
+    <div id="omg-header">
+      <h1>Tibetan Singing Bowls</h1>
+      <div id="omg-theme-picker"></div>
+    </div>
+    <h2>Strike a bowl, or make it sing</h2>
+    <div class="content">
+      <p class="tagline">
+        Seven bowls, tuned to a scale. Tap one to strike it, or switch to
+        <em>Sing</em> and hold it down to draw the tone out, the way a mallet
+        circles the rim. Each bowl is synthesized live, with the slowly beating
+        overtones that make a real bowl shimmer. Use headphones or good speakers.
+      </p>
+
+      <div class="chips" id="mode-chips" role="group" aria-label="How to play"></div>
+
+      <div class="bowls" id="bowls"></div>
+
+      <div class="spectrum-wrap">
+        <canvas id="spectrum" height="110" aria-label="Spectrum of the sound"></canvas>
+        <div class="spectrum-axis"><span>100 Hz</span><span>1 kHz</span><span>5 kHz</span></div>
+      </div>
+
+      <div class="layout">
+        <div class="side wide">
+          <div class="panel">
+            <h3>Tuning</h3>
+            <div class="chips" id="set-chips" role="group" aria-label="Scale"></div>
+            <div class="chips" id="octave-chips" role="group" aria-label="Octave"></div>
+            <div class="chips" id="pitch-chips" role="group" aria-label="Reference pitch"></div>
+          </div>
+          <div class="panel">
+            <h3>Sound</h3>
+            <div class="ctl">
+              <label for="volume">Volume</label><span class="val" id="volume-val"></span>
+              <input type="range" id="volume" min="0" max="100" step="1" />
+            </div>
+            <div class="ctl">
+              <label for="reverb">Room (reverb)</label><span class="val" id="reverb-val"></span>
+              <input type="range" id="reverb" min="0" max="100" step="1" />
+            </div>
+          </div>
+        </div>
+
+        <div class="side wide">
+          <div class="panel">
+            <h3>Sound bath</h3>
+            <p class="note">
+              Lets the bowls play by themselves, one strike at a time, with
+              silence between them.
+            </p>
+            <div class="chips" id="bath-chips" role="group" aria-label="Sound bath length"></div>
+            <div class="btns">
+              <button type="button" id="bath-btn" onclick="toggleBath()">Start sound bath</button>
+              <span class="bath-left" id="bath-left" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>About the sound</h3>
+            <p class="note">
+              A struck bowl rings at its fundamental plus overtones at about
+              2.7, 5.2 and 8.3 times that pitch. Each overtone is a pair of
+              oscillators a hair apart, so it swells and fades a few times a
+              second. That beating is the "wah-wah" you hear from a real bowl.
+              Higher overtones die away faster.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p><a href="about.html">About singing bowls</a></p>
+        <p>The bowls are synthesized in your browser, with the beating overtones of the real thing.</p>
+        <p>
+          Tibetan Singing Bowls is open source on
+          <a href="https://github.com/evoluteur/tibetan-singing-bowls">GitHub</a>
+          with an MIT license.
+        </p>
+        <p>
+          Had fun browsing the app?
+          <a href="https://github.com/sponsors/evoluteur">Buy me a coffee by becoming a sponsor</a>.
+        </p>
+        <p>
+          You may also like <a href="https://evoluteur.github.io/healing-frequencies/">Healing Frequencies</a>, <a href="https://evoluteur.github.io/binaural-beats/">Binaural Beats</a>, <a href="https://evoluteur.github.io/cymatics/">Cymatics</a>, and <a href="https://evoluteur.github.io/mandala-maker/">Mandala Maker</a>. For more mystic arts as small web apps, see
+          <a href="https://evoluteur.github.io/projects/esoterica.html">Esoterica</a>.
+        </p>
+        <p class="copyright">
+          &#169; 2026
+          <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

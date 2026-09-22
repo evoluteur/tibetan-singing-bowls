@@ -1,0 +1,46 @@
+html {
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+body {
+  &.huge {
+    padding: 10px 20px;
+    font-size: 36px;
+    #omg-nav {
+      top: 70px;
+      padding: 20px;
+    }
+  }
+  &.big {
+    padding: 10px 20px;
+    font-size: 24px;
+    #omg-nav {
+      top: 50px;
+      padding: 20px;
+    }
+  }
+  &.medium {
+    padding: 10px 20px;
+    font-size: 18px;
+    #omg-nav {
+      top: 40px;
+      padding: 20px;
+    }
+  }
+  &.small {
+    padding: 10px 20px;
+    font-size: 16px;
+    #omg-nav {
+      top: 32px;
+      padding: 14px;
+    }
+  }
+  &.tiny {
+    padding: 6px 10px;
+    font-size: 12px;
+    #omg-nav {
+      top: 30px;
+      padding: 10px;
+    }
+  }
+}

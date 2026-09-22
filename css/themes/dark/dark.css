@@ -1,0 +1,279 @@
+:root {
+  --card-bg: #2d3848;
+  --card-border: #3c4a5f;
+  --card-foot: #b7c4d6;
+  --card-strong: white;
+  --input-bg: #2d3848;
+  --input-text: #e6ecf5;
+  --input-border: #3c4a5f;
+}
+
+/*
+  https://evoluteur.github.io/
+  (c) 2024 Olivier Giulieri
+ */
+
+html {
+  scroll-behavior: smooth;
+  background-color: #1a212d;
+  background-image: url(bg0.png);
+  background-repeat: repeat-y;
+}
+body {
+  font-family: "Overpass", serif;
+  /* font-family: monospace; */
+  font-weight: 300;
+  color: white;
+}
+.pane {
+  padding: 0 20px;
+}
+.orange-pane,
+.purple-pane,
+.blue-pane {
+  padding: 20px 30px 30px !important;
+}
+
+#omg-header,
+#omg-nav {
+  background-color: #1a212d;
+}
+
+h2 {
+  background: linear-gradient(white, #ffa500);
+}
+/* .col1 {
+  border-left: 5px solid #ffa500;
+  > h2 {
+    background: linear-gradient(white, #ffa500);
+  }
+}
+.col2 {
+  border-left: 5px solid #51eaff;
+  > h2 {
+    background: linear-gradient(white, #51eaff);
+  }
+} */
+#response {
+  border-left: 5px solid #d16eff;
+  padding: 10px 20px;
+  margin: 20px 0;
+  > h2 {
+    background: linear-gradient(white, #d16eff);
+  }
+  > div {
+    padding-left: 25px;
+  }
+}
+.pane,
+#response {
+  border-radius: 10px;
+  background-color: #2d3848;
+}
+button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin: 20px 5px 0;
+  cursor: pointer;
+  color: white;
+  background-color: #3182ce;
+  border: none;
+  &:hover,
+  &:focus {
+    background-color: #2b6cb0;
+  }
+  &:active {
+    background-color: #2c5282;
+  }
+}
+h1 {
+  /* font-size: 3rem; */
+  background: linear-gradient(white, #70ade6);
+  -webkit-background-clip: text;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+}
+h2 {
+  margin-bottom: 30px;
+  font-weight: 300;
+  -webkit-background-clip: text;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+}
+.tagline {
+  font-size: 17px;
+  margin: 0 0 40px 20px;
+}
+.error,
+.prompt {
+  color: red;
+}
+a,
+a:visited {
+  color: #ffb74d;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+li {
+  margin: 15px 0;
+}
+
+.r-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  > div {
+    flex-grow: 1;
+    padding-bottom: 10px;
+    > table {
+      margin-left: 20px;
+      td {
+        vertical-align: top;
+        padding: 5px 0;
+      }
+      .checkb1 {
+        padding-top: 10px;
+      }
+    }
+    > div {
+      display: block;
+      padding: 5px 0 5px 20px;
+    }
+    label:not(.no-col) {
+      display: block;
+      margin-top: 5px;
+      &::after {
+        content: ":";
+        margin: 0 5px 0 2px;
+      }
+    }
+    .no-col {
+      display: inline;
+      font-size: 0.8em;
+    }
+  }
+}
+input,
+select {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: var(--input-text);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+#age,
+#height1,
+#height2 {
+  width: 3em;
+}
+#height1 {
+  display: inline-block;
+}
+#weight {
+  width: 4em;
+}
+#bwOnly,
+#video {
+  transform: scale(1.4);
+  margin-right: 3px;
+}
+#btns2 {
+  display: none;
+}
+.video {
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  margin-left: 6px;
+}
+.e-video {
+  display: flex;
+  justify-content: center;
+  width: 95vw;
+  width: calc(100vw - 10px);
+  overflow-y: hidden;
+  margin: 10px -40px 0 -80px;
+  > iframe {
+    display: none;
+    border-width: 0;
+  }
+}
+svg {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  fill: #f1d9ac;
+  &:hover {
+    fill: orange;
+  }
+}
+td svg {
+  position: relative;
+  top: 4px;
+}
+#focus2-row {
+  display: none;
+  margin-top: 5px;
+}
+.inst {
+  margin-top: 10px;
+}
+.footer {
+  margin-top: 50px;
+  color: grey;
+  font-size: 0.8em;
+}
+
+@media only screen and (min-width: 700px) {
+  body,
+  button,
+  input,
+  select {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  body {
+    padding: 20px 5px;
+  }
+  .e-video {
+    margin: 10px -25px 0 -65px;
+  }
+  #response {
+    > div {
+      padding-left: 0;
+    }
+  }
+  .r-form > div > table {
+    margin-left: 5px;
+  }
+}
+@media print {
+  body {
+    color: #1a1a1a !important;
+  }
+  body > table {
+    page-break-before: always;
+  }
+  h2 {
+    background: none !important;
+    background-clip: inherit;
+    -webkit-text-fill-color: black;
+  }
+  @page {
+    margin: 1cm 1cm;
+  }
+}
+
+.omg-table {
+  th {
+    background-color: #2d3848;
+    /* // #1a212d; */
+  }
+}

@@ -1,0 +1,113 @@
+:root {
+  --card-bg: #5594f4;
+  --card-border: #0288d1;
+  --card-foot: #dbe9ff;
+  --card-strong: white;
+  --input-bg: white;
+  --input-text: #1a1a1a;
+  --input-border: #0288d1;
+}
+
+html {
+  color: white;
+  background: #0288d1 url("spirals.png");
+}
+body {
+  position: relative;
+  font-family: "Overpass", serif;
+  scroll-behavior: smooth;
+  font-size: 1.2rem;
+}
+a,
+a:visited {
+  color: #ffb74d;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffcc80;
+  text-decoration: underline;
+}
+
+#omg-header,
+#omg-nav {
+  display: block;
+  background: #0288d1 url("spirals.png");
+}
+#omg-nav {
+  top: 50px;
+}
+/*
+#omg-header {
+  position: relative;
+  top: 0;
+}
+#omg-nav {
+  position: relative;
+  top: 50px;
+  padding: 5px;
+  > a {
+    display: inline-block;
+    margin-right: 20px;
+  }
+} */
+#omg-footer {
+  /* top: 0; */
+}
+
+.omg-table {
+  th {
+    background: #0288d1 url("spirals.png");
+  }
+}
+
+.card-detail {
+  background: #0288d1 url("spirals.png");
+}
+
+/* title gradient, same effect as the dark theme but keeping this
+   theme's own accent color (like react-morph-charts' omg theme) */
+h1,
+h2,
+h3 {
+  background: linear-gradient(white, #e08a00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin: 20px 5px 0;
+  cursor: pointer;
+  color: #0277bd;
+  background-color: #ffb74d;
+  border: none;
+  &:hover,
+  &:focus {
+    background-color: #ffcc80;
+  }
+  &:active {
+    background-color: #e08a00;
+    color: white;
+  }
+}
+input,
+select {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: var(--input-text);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+
+@media only screen and (min-width: 700px) {
+  body,
+  button,
+  input,
+  select {
+    font-size: 18px;
+  }
+}

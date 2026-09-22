@@ -1,0 +1,83 @@
+/* About page and footer (linked from index.html and about.html) */
+.footer p {
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.footer p.copyright {
+  margin-top: 20px;
+}
+
+.about {
+  max-width: 720px;
+}
+.about h3 {
+  margin: 34px 0 10px;
+}
+.about p,
+.about li {
+  line-height: 1.6;
+}
+.about strong {
+  font-weight: bold; /* the dark theme renders <strong> at normal weight */
+}
+#omg-header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+.about .lede {
+  font-size: 1.15em;
+  opacity: 0.9;
+}
+.about .note {
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+.about .accent {
+  font-style: italic;
+  color: var(--accent, #ffa500);
+}
+.about .anatomy {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 18px;
+  margin: 0 0 20px;
+  padding: 14px 0;
+  border-block: 1px solid var(--card-border);
+}
+.about .anatomy dt {
+  font-weight: bold;
+  color: var(--card-strong);
+}
+.about .anatomy dd {
+  margin: 0;
+  opacity: 0.85;
+}
+.about .timeline {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+}
+.about .timeline li {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 14px;
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+.about .timeline li:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.about .timeline .when {
+  font-weight: bold;
+  color: var(--card-strong);
+  font-variant-numeric: tabular-nums;
+}
+@media only screen and (max-width: 480px) {
+  .about .timeline li {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

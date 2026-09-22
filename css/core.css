@@ -1,0 +1,124 @@
+.config-pickers {
+  /* position: absolute;
+  right: 20px;
+  top: 20px; */
+  > div {
+    padding: 6px 0;
+  }
+}
+h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.big-v-space {
+  display: block;
+  width: 200px;
+  height: 0;
+  margin-top: 90vh;
+}
+#omg-header,
+#omg-nav {
+  display: block;
+  position: sticky;
+  /* background: #0288d1 url("spirals.png"); */
+  background-color: inherit;
+  z-index: 100;
+}
+
+#omg-header {
+  /* position: relative; */
+  top: 0;
+}
+#omg-nav {
+  /* position: relative; */
+  top: 50px;
+  padding: 5px;
+  > a {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+#config-pickers {
+  background-color: inherit;
+  /* position: fixed; */
+  top: 5px;
+  background-color: inherit;
+  > div {
+    display: inline-block;
+  }
+}
+#omg-theme-picker {
+  position: absolute;
+  /* position: sticky;
+  top: 45px;
+  right: 100px; */
+  top: 5px;
+  right: 5px;
+  /* background: inherit; */
+  z-index: 200;
+  > a {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid silver;
+    margin-right: 10px;
+    /* &.selected {
+      border-radius: 4px;
+    } */
+  }
+}
+
+#omg-density-picker {
+  /* position: sticky;
+  top: 5px;
+  right: 100px; */
+  background-color: inherit;
+  z-index: 200;
+  > a {
+    margin-right: 20px;
+    /* &.selected {
+      text-decoration: underline;
+    } */
+  }
+}
+
+.cab {
+  position: absolute;
+  transform: translateX(-600px);
+  z-index: 1001;
+  animation: cab-ride 10s infinite linear;
+}
+@keyframes cab-ride {
+  0%,
+  10% {
+    transform: translateX(-600px);
+  }
+  80%,
+  100% {
+    transform: translateX(calc(100vw + 600px));
+  }
+}
+
+.omg-table {
+  border-collapse: collapse;
+  width: 100%;
+  tr {
+    align-items: top;
+    border-top: solid 2px silver;
+    border-bottom: solid 2px silver;
+  }
+  th,
+  td {
+    padding: 5px 10px;
+    text-align: left;
+  }
+  th {
+    position: sticky;
+    top: 100px;
+    font-weight: bold;
+    z-index: 50;
+  }
+}

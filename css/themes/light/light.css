@@ -1,0 +1,94 @@
+:root {
+  --card-bg: white;
+  --card-border: #d0d7de;
+  --card-foot: #52617a;
+  --card-strong: #1a212d;
+  --input-bg: white;
+  --input-text: #1a212d;
+  --input-border: #d0d7de;
+}
+
+html {
+  color: #1a212d;
+  background-color: #fdfdff;
+  /* // test left bar */
+  background-image: url(bg0.png);
+  background-repeat: repeat-y;
+}
+body {
+  background-color: #fdfdff;
+  /* padding: 10px 20px; */
+  font-family: "Overpass", serif;
+  /* font-size: 20px; */
+  scroll-behavior: smooth;
+}
+a,
+a:visited {
+  color: navy;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+#omg-header {
+  top: 0;
+}
+#omg-nav {
+  top: 45px;
+  padding: 5px;
+  > a {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+#omg-footer {
+  /* top: 0; */
+}
+
+.omg-table {
+  th {
+    background-color: #fbfbfb;
+  }
+}
+
+.card-detail {
+  background-color: #fbfbfb;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin: 20px 5px 0;
+  cursor: pointer;
+  color: white;
+  background-color: #3182ce;
+  border: none;
+  &:hover,
+  &:focus {
+    background-color: #2b6cb0;
+  }
+  &:active {
+    background-color: #2c5282;
+  }
+}
+input,
+select {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: var(--input-text);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+
+@media only screen and (min-width: 700px) {
+  body,
+  button,
+  input,
+  select {
+    font-size: 18px;
+  }
+}

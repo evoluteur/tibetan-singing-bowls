@@ -1,0 +1,136 @@
+.bowls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 12px;
+  margin: 8px 0 12px;
+  max-width: 900px;
+}
+.bowl {
+  --c: #ffb74d;
+  --glow: 0;
+  --s: 1;
+  position: relative;
+  margin: 0;
+  padding: 10px 6px 10px;
+  border-radius: 14px;
+  border: 3px solid var(--card-border);
+  background-color: var(--card-bg);
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: border-color 0.2s ease;
+}
+.bowl:hover,
+.bowl:focus-visible,
+.bowl:active {
+  background-color: var(--card-bg);
+  border-color: color-mix(in srgb, var(--c), var(--card-border) 45%);
+}
+.bowl.ringing {
+  border-color: var(--c);
+  box-shadow: 0 0 calc(28px * var(--glow)) color-mix(in srgb, var(--c), transparent calc(100% - 70% * var(--glow)));
+}
+.bowl svg {
+  display: block;
+  width: calc(78% * var(--s));
+  height: auto;
+  margin: 6px auto 4px;
+  fill: none;
+  cursor: inherit;
+  overflow: visible;
+}
+.bowl svg:hover {
+  fill: none;
+}
+.bowl .ring {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 1.5;
+  opacity: 0;
+}
+.bowl.ringing .ring {
+  animation: ripple 2.6s ease-out infinite;
+}
+.bowl.ringing .ring:nth-child(2) {
+  animation-delay: 0.85s;
+}
+.bowl.ringing .ring:nth-child(3) {
+  animation-delay: 1.7s;
+}
+@keyframes ripple {
+  0% {
+    opacity: calc(0.9 * var(--glow));
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+.bowl .ring {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.bowl-note {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--card-strong);
+  line-height: 1.1;
+}
+.bowl-freq {
+  font-size: 0.75em;
+  color: var(--card-foot);
+  font-variant-numeric: tabular-nums;
+}
+.bowl-name {
+  font-size: 0.68em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+.bowl-key {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: 0.65em;
+  opacity: 0.55;
+}
+
+.spectrum-wrap {
+  max-width: 900px;
+  margin: 0 0 18px;
+}
+#spectrum {
+  display: block;
+  width: 100%;
+  height: 110px;
+  border: 3px solid var(--card-border);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+}
+.spectrum-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65em;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+.side.wide {
+  flex: 1 1 320px;
+  max-width: 440px;
+}
+.bath-left {
+  align-self: center;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+.panel p.note {
+  margin: 0 0 12px;
+}

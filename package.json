@@ -1,0 +1,25 @@
+{
+  "name": "tibetan-singing-bowls",
+  "version": "1.0.0",
+  "description": "Strike or rub a set of virtual Tibetan singing bowls: synthesized in the browser with Web Audio, with the beating overtones of the real thing.",
+  "repository": "github:evoluteur/tibetan-singing-bowls",
+  "homepage": "https://evoluteur.github.io/tibetan-singing-bowls/",
+  "copyright": "(c) 2026 Olivier Giulieri",
+  "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+  "license": "MIT",
+  "keywords": [
+    "singing-bowls",
+    "tibetan-singing-bowls",
+    "sound-bath",
+    "sound-healing",
+    "meditation",
+    "relaxation",
+    "chakras",
+    "webaudio",
+    "synthesizer",
+    "singing-bowl",
+    "esoterica",
+    "pwa",
+    "javascript"
+  ]
+}
