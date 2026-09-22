@@ -1,3 +1,9 @@
+/* common.css caps .tagline at 680px; widen it here to match the bowls
+   grid and spectrum chart below it (both max-width: 900px). */
+.tagline {
+  max-width: 900px;
+}
+
 .bowls {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));

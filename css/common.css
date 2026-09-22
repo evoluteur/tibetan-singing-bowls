@@ -5,11 +5,48 @@
   z-index: 450;
 }
 
+/* Theme toggle and GitHub link share one row, top right of the header.
+   core.css positions #omg-theme-picker absolutely on its own (top:5px,
+   right:5px) -- .header-icons takes over that positioning as a flex row
+   so both sit on one line with a fixed gap, and the two children just
+   flow inside it. */
+.header-icons {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#omg-github {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+#omg-github svg {
+  width: 28px; /* same size in every theme (the themes' generic svg rule differs) */
+  height: 28px;
+}
+html[data-theme="evol-blue"] #omg-github svg {
+  fill: white; /* like the theme toggle icons on the blue background */
+}
+#omg-github:hover,
+#omg-github:focus-visible {
+  opacity: 1;
+}
+
 /* core.css is shared across other projects, so the theme-picker's swatch
    styling stays untouched there -- this overrides it to render icons
    (sun/moon/spiral, same set as react-morph-charts' ThemeToggle) instead of
    plain colored circles, without needing to edit the shared file. */
 #omg-theme-picker {
+  position: static; /* was absolute in core.css; .header-icons positions it now */
   gap: 2px;
 }
 #omg-theme-picker > a {
@@ -250,7 +287,9 @@ button:disabled {
 @media only screen and (max-width: 560px) {
   h1 {
     font-size: 1.6rem;
-    padding-right: 125px;
+    /* wider than the shared 125px: the header-icons row now holds the
+       theme toggle + a 20px gap + the GitHub icon side by side */
+    padding-right: 180px;
     white-space: normal;
     overflow: visible;
   }
