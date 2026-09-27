@@ -283,6 +283,20 @@ button:disabled {
 .footer {
   margin-top: 40px;
 }
+.real-bowls {
+  margin-top: 40px;
+  > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+}
 
 @media only screen and (max-width: 560px) {
   h1 {

@@ -1,4 +1,4 @@
-const CACHE = "tibetan-singing-bowls-v2";
+const CACHE = "tibetan-singing-bowls-v3";
 const ASSETS = [
   "./",
   "index.html",
@@ -17,6 +17,7 @@ const ASSETS = [
   "favicon.png",
   "icon-192.png",
   "icon-512.png",
+  "img/tibetan-sound-bowl_4.webp",
   "js/bowls.js",
   "js/omg.js",
   "manifest.json",
