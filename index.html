@@ -21,7 +21,10 @@
       content="Strike or rub a set of virtual Tibetan singing bowls, synthesized in your browser with the beating overtones of the real thing. Includes a sound bath timer. Free, works offline."
     />
     <meta name="author" content="Olivier Giulieri" />
-    <link rel="canonical" href="https://evoluteur.github.io/tibetan-singing-bowls/" />
+    <link
+      rel="canonical"
+      href="https://evoluteur.github.io/tibetan-singing-bowls/"
+    />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icon-192.png" />
@@ -42,17 +45,36 @@
     <script src="js/bowls.js"></script>
     <script>
       if ("serviceWorker" in navigator) {
-        addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+        addEventListener("load", () =>
+          navigator.serviceWorker.register("sw.js"),
+        );
       }
     </script>
   </head>
 
-  <body onload="setupPage('home'); initBowls();" id="omg-body">
+  <body
+    onload="
+      setupPage('home');
+      initBowls();
+    "
+    id="omg-body"
+  >
     <div id="omg-header">
       <h1>Tibetan Singing Bowls</h1>
       <div class="header-icons">
         <div id="omg-theme-picker"></div>
-        <a id="omg-github" href="https://github.com/evoluteur/tibetan-singing-bowls" target="_blank" rel="noopener" title="Tibetan Singing Bowls on GitHub" aria-label="Tibetan Singing Bowls on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a
+          id="omg-github"
+          href="https://github.com/evoluteur/tibetan-singing-bowls"
+          target="_blank"
+          rel="noopener"
+          title="Tibetan Singing Bowls on GitHub"
+          aria-label="Tibetan Singing Bowls on GitHub"
+          ><svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            /></svg
+        ></a>
       </div>
     </div>
     <h2>Strike a bowl, or make it sing</h2>
@@ -61,34 +83,63 @@
         Seven bowls, tuned to a scale. Tap one to strike it, or switch to
         <em>Sing</em> and hold it down to draw the tone out, the way a mallet
         circles the rim. Each bowl is synthesized live, with the slowly beating
-        overtones that make a real bowl shimmer. Use headphones or good speakers.
+        overtones that make a real bowl shimmer. Use headphones or good
+        speakers.
       </p>
 
-      <div class="chips" id="mode-chips" role="group" aria-label="How to play"></div>
+      <div
+        class="chips"
+        id="mode-chips"
+        role="group"
+        aria-label="How to play"
+      ></div>
 
       <div class="bowls" id="bowls"></div>
 
       <div class="spectrum-wrap">
-        <canvas id="spectrum" height="110" aria-label="Spectrum of the sound"></canvas>
-        <div class="spectrum-axis"><span>100 Hz</span><span>1 kHz</span><span>5 kHz</span></div>
+        <canvas
+          id="spectrum"
+          height="110"
+          aria-label="Spectrum of the sound"
+        ></canvas>
+        <div class="spectrum-axis">
+          <span>100 Hz</span><span>1 kHz</span><span>5 kHz</span>
+        </div>
       </div>
 
       <div class="layout">
         <div class="side wide">
           <div class="panel">
             <h3>Tuning</h3>
-            <div class="chips" id="set-chips" role="group" aria-label="Scale"></div>
-            <div class="chips" id="octave-chips" role="group" aria-label="Octave"></div>
-            <div class="chips" id="pitch-chips" role="group" aria-label="Reference pitch"></div>
+            <div
+              class="chips"
+              id="set-chips"
+              role="group"
+              aria-label="Scale"
+            ></div>
+            <div
+              class="chips"
+              id="octave-chips"
+              role="group"
+              aria-label="Octave"
+            ></div>
+            <div
+              class="chips"
+              id="pitch-chips"
+              role="group"
+              aria-label="Reference pitch"
+            ></div>
           </div>
           <div class="panel">
             <h3>Sound</h3>
             <div class="ctl">
-              <label for="volume">Volume</label><span class="val" id="volume-val"></span>
+              <label for="volume">Volume</label
+              ><span class="val" id="volume-val"></span>
               <input type="range" id="volume" min="0" max="100" step="1" />
             </div>
             <div class="ctl">
-              <label for="reverb">Room (reverb)</label><span class="val" id="reverb-val"></span>
+              <label for="reverb">Room (reverb)</label
+              ><span class="val" id="reverb-val"></span>
               <input type="range" id="reverb" min="0" max="100" step="1" />
             </div>
           </div>
@@ -101,9 +152,16 @@
               Lets the bowls play by themselves, one strike at a time, with
               silence between them.
             </p>
-            <div class="chips" id="bath-chips" role="group" aria-label="Sound bath length"></div>
+            <div
+              class="chips"
+              id="bath-chips"
+              role="group"
+              aria-label="Sound bath length"
+            ></div>
             <div class="btns">
-              <button type="button" id="bath-btn" onclick="toggleBath()">Start sound bath</button>
+              <button type="button" id="bath-btn" onclick="toggleBath()">
+                Start sound bath
+              </button>
               <span class="bath-left" id="bath-left" aria-live="polite"></span>
             </div>
           </div>
@@ -122,19 +180,34 @@
 
       <div class="footer">
         <p><a href="about.html">About singing bowls</a></p>
-        <p>The bowls are synthesized in your browser, with the beating overtones of the real thing.</p>
+        <p>
+          The bowls are synthesized in your browser, with the beating overtones
+          of the real thing.
+        </p>
         <p>
           Tibetan Singing Bowls is open source on
-          <a href="https://github.com/evoluteur/tibetan-singing-bowls">GitHub</a>
+          <a href="https://github.com/evoluteur/tibetan-singing-bowls"
+            >GitHub</a
+          >
           with an MIT license.
         </p>
         <p>
           Had fun browsing the app?
-          <a href="https://github.com/sponsors/evoluteur">Buy me a coffee by becoming a sponsor</a>.
+          <a href="https://github.com/sponsors/evoluteur"
+            >Buy me a coffee by becoming a sponsor</a
+          >.
         </p>
         <p>
-          You may also like <a href="https://evoluteur.github.io/healing-frequencies/">Healing Frequencies</a>, <a href="https://evoluteur.github.io/binaural-beats/">Binaural Beats</a>, <a href="https://evoluteur.github.io/cymatics/">Cymatics</a>, and <a href="https://evoluteur.github.io/mandala-maker/">Mandala Maker</a>. For more mystic arts as small web apps, see
-          <a href="https://evoluteur.github.io/projects/esoterica.html">Esoterica</a>.
+          You may also like
+          <a href="https://evoluteur.github.io/healing-frequencies/"
+            >Healing Frequencies</a
+          >,
+          <a href="https://evoluteur.github.io/binaural-beats/"
+            >Binaural Beats</a
+          >, <a href="https://evoluteur.github.io/cymatics/">Cymatics</a>, and
+          <a href="https://evoluteur.github.io/mandala-maker/">Mandala Maker</a
+          >. For more mystic arts as small web apps, see
+          <a href="https://evoluteur.github.io/esoterica.html">Esoterica</a>.
         </p>
         <p class="real-bowls">
           <a
